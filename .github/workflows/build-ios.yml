@@ -26,23 +26,31 @@ on:
 jobs:
   build-ios:
     name: Build iOS IPA
-    runs-on: macos-14
+    runs-on: macos-latest
 
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Show Xcode Version
+      - name: Show Xcode & Simulator Environment
         run: |
           xcodebuild -version
           xcrun simctl list devices available
 
       - name: Run Unit Tests
         run: |
+          # Automatically detect available iPhone simulator
+          DEVICE_ID=$(xcrun simctl list devices available | grep -E "iPhone" | head -n 1 | grep -oE "[0-9A-F]{8}-[0-9A-F]{4}-[0-9A-F]{4}-[0-9A-F]{4}-[0-9A-F]{12}" || true)
+          if [ -n "$DEVICE_ID" ]; then
+            DEST="platform=iOS Simulator,id=$DEVICE_ID"
+          else
+            DEST="generic/platform=iOS Simulator"
+          fi
+          echo "Testing on destination: $DEST"
           xcodebuild test \
             -project ios/InterestCalculator.xcodeproj \
             -scheme InterestCalculatorTests \
-            -destination 'platform=iOS Simulator,name=iPhone 15' \
+            -destination "$DEST" \
             CODE_SIGNING_ALLOWED=NO \
             CODE_SIGNING_REQUIRED=NO \
             CODE_SIGN_IDENTITY=""
@@ -85,4 +93,3 @@ jobs:
           name: InterestCalculator-xcarchive
           path: build/InterestCalculator.xcarchive
           retention-days: 7
-
