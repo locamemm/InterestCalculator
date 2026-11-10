@@ -16,3 +16,4 @@ struct InterestCalculatorApp: App {
         }
     }
 }
+

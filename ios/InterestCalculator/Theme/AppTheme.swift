@@ -41,3 +41,4 @@ enum AppTheme {
         endPoint: .bottomTrailing
     )
 }
+

@@ -133,3 +133,4 @@ struct LoanProfile: Identifiable, Codable, Equatable {
         self.createdAt = createdAt
     }
 }
+

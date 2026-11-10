@@ -456,3 +456,4 @@ struct LoanCalculatorView: View {
         self.selectedMethod = p.selectedMethod
     }
 }
+

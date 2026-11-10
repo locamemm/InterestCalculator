@@ -118,3 +118,4 @@ struct SavingsProfile: Identifiable, Codable, Equatable {
         self.createdAt = createdAt
     }
 }
+

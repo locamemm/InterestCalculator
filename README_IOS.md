@@ -93,3 +93,4 @@ Sau khi tải file `.ipa` từ GitHub Actions về máy tính hoặc điện tho
 
 ### Cách 3: Sử dụng TrollStore (Nếu iOS hỗ trợ)
 - Dành cho các thiết bị chạy iOS 14.0 - 16.6.1 hoặc 17.0: Mở trực tiếp file `.ipa` trong TrollStore để cài vĩnh viễn không cần ký lại.
+

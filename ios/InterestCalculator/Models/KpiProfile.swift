@@ -11,3 +11,4 @@ struct KpiProfile: Codable, Equatable {
     var loanDisbursementTarget: Double = 5_000_000_000.0 // 5 tỷ
     var savingsMobilizationTarget: Double = 10_000_000_000.0 // 10 tỷ
 }
+

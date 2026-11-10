@@ -220,3 +220,4 @@ enum SavingsCalculator {
         return lines.joined(separator: "\n")
     }
 }
+

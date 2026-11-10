@@ -395,3 +395,4 @@ struct SavingsCalculatorView: View {
         self.isCompounding = p.isCompounding
     }
 }
+

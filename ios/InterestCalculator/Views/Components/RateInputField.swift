@@ -103,3 +103,4 @@ struct RateInputField: View {
         }
     }
 }
+

@@ -397,3 +397,4 @@ private struct SavingsCardView: View {
         .shadow(color: Color.black.opacity(0.04), radius: 3, x: 0, y: 1)
     }
 }
+
