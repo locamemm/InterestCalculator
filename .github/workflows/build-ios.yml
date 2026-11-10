@@ -1,0 +1,87 @@
+name: Build iOS IPA
+
+on:
+  workflow_dispatch:
+    inputs:
+      configuration:
+        description: 'Build Configuration (Release or Debug)'
+        required: true
+        default: 'Release'
+        type: choice
+        options:
+          - Release
+          - Debug
+  push:
+    branches:
+      - main
+    paths:
+      - 'ios/**'
+      - '.github/workflows/build-ios.yml'
+  pull_request:
+    branches:
+      - main
+    paths:
+      - 'ios/**'
+
+jobs:
+  build-ios:
+    name: Build iOS IPA
+    runs-on: macos-14
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Show Xcode Version
+        run: |
+          xcodebuild -version
+          xcrun simctl list devices available
+
+      - name: Run Unit Tests
+        run: |
+          xcodebuild test \
+            -project ios/InterestCalculator.xcodeproj \
+            -scheme InterestCalculatorTests \
+            -destination 'platform=iOS Simulator,name=iPhone 15' \
+            CODE_SIGNING_ALLOWED=NO \
+            CODE_SIGNING_REQUIRED=NO \
+            CODE_SIGN_IDENTITY=""
+
+      - name: Build Archive (.xcarchive)
+        run: |
+          BUILD_CONFIG="${{ github.event.inputs.configuration || 'Release' }}"
+          mkdir -p build
+          xcodebuild archive \
+            -project ios/InterestCalculator.xcodeproj \
+            -scheme InterestCalculator \
+            -configuration "$BUILD_CONFIG" \
+            -destination 'generic/platform=iOS' \
+            -archivePath build/InterestCalculator.xcarchive \
+            CODE_SIGNING_ALLOWED=NO \
+            CODE_SIGNING_REQUIRED=NO \
+            CODE_SIGN_IDENTITY=""
+
+      - name: Package IPA from Payload
+        run: |
+          mkdir -p Payload
+          cp -r build/InterestCalculator.xcarchive/Products/Applications/InterestCalculator.app Payload/
+          zip -qr InterestCalculator.ipa Payload
+          shasum -a 256 InterestCalculator.ipa > InterestCalculator.ipa.sha256
+          echo "IPA Size: $(du -h InterestCalculator.ipa | cut -f1)"
+          echo "SHA256: $(cat InterestCalculator.ipa.sha256)"
+
+      - name: Upload IPA Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: InterestCalculator-iOS-IPA
+          path: |
+            InterestCalculator.ipa
+            InterestCalculator.ipa.sha256
+          retention-days: 14
+
+      - name: Upload xcarchive Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: InterestCalculator-xcarchive
+          path: build/InterestCalculator.xcarchive
+          retention-days: 7

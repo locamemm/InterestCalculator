@@ -13,3 +13,11 @@
 .externalNativeBuild
 .cxx
 local.properties
+
+# Xcode & iOS
+*.xcuserstate
+*.xcworkspace/xcuserdata
+DerivedData/
+*.ipa
+Payload/
+*.xcarchive

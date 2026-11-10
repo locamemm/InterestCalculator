@@ -1,0 +1,659 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		AA01000129B7F10000000002 /* InterestCalculatorApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA01000129B7F10000000001 /* InterestCalculatorApp.swift */; };
+		AA01000229B7F10000000002 /* CalculationParamsModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA01000229B7F10000000001 /* CalculationParamsModels.swift */; };
+		AA01000329B7F10000000002 /* DebtModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA01000329B7F10000000001 /* DebtModels.swift */; };
+		AA01000429B7F10000000002 /* KpiProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA01000429B7F10000000001 /* KpiProfile.swift */; };
+		AA01000529B7F10000000002 /* LoanProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA01000529B7F10000000001 /* LoanProfile.swift */; };
+		AA01000629B7F10000000002 /* SavingsProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA01000629B7F10000000001 /* SavingsProfile.swift */; };
+		AA01000729B7F10000000002 /* LoanCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA01000729B7F10000000001 /* LoanCalculator.swift */; };
+		AA01000829B7F10000000002 /* SavingsCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA01000829B7F10000000001 /* SavingsCalculator.swift */; };
+		AA01000929B7F10000000002 /* DebtCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA01000929B7F10000000001 /* DebtCalculator.swift */; };
+		AA01000A29B7F10000000002 /* BankDataRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA01000A29B7F10000000001 /* BankDataRepository.swift */; };
+		AA01000B29B7F10000000002 /* CurrencyUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA01000B29B7F10000000001 /* CurrencyUtils.swift */; };
+		AA01000C29B7F10000000002 /* DateTimeUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA01000C29B7F10000000001 /* DateTimeUtils.swift */; };
+		AA01000D29B7F10000000002 /* AppTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA01000D29B7F10000000001 /* AppTheme.swift */; };
+		AA01000E29B7F10000000002 /* MainBankScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA01000E29B7F10000000001 /* MainBankScreen.swift */; };
+		AA01000F29B7F10000000002 /* KpiHeaderBanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA01000F29B7F10000000001 /* KpiHeaderBanner.swift */; };
+		AA01001029B7F10000000002 /* MoneyInputField.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA01001029B7F10000000001 /* MoneyInputField.swift */; };
+		AA01001129B7F10000000002 /* RateInputField.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA01001129B7F10000000001 /* RateInputField.swift */; };
+		AA01001229B7F10000000002 /* TermInputField.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA01001229B7F10000000001 /* TermInputField.swift */; };
+		AA01001329B7F10000000002 /* DateInputField.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA01001329B7F10000000001 /* DateInputField.swift */; };
+		AA01001429B7F10000000002 /* ScheduleTableDialog.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA01001429B7F10000000001 /* ScheduleTableDialog.swift */; };
+		AA01001529B7F10000000002 /* DebtScheduleDialog.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA01001529B7F10000000001 /* DebtScheduleDialog.swift */; };
+		AA01001629B7F10000000002 /* ShareQuoteDialog.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA01001629B7F10000000001 /* ShareQuoteDialog.swift */; };
+		AA01001729B7F10000000002 /* SavedParamsDialog.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA01001729B7F10000000001 /* SavedParamsDialog.swift */; };
+		AA01001829B7F10000000002 /* LoanCalculatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA01001829B7F10000000001 /* LoanCalculatorView.swift */; };
+		AA01001929B7F10000000002 /* LoanListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA01001929B7F10000000001 /* LoanListView.swift */; };
+		AA01001A29B7F10000000002 /* LoanTabScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA01001A29B7F10000000001 /* LoanTabScreen.swift */; };
+		AA01001B29B7F10000000002 /* SaveLoanDialog.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA01001B29B7F10000000001 /* SaveLoanDialog.swift */; };
+		AA01001C29B7F10000000002 /* SavingsCalculatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA01001C29B7F10000000001 /* SavingsCalculatorView.swift */; };
+		AA01001D29B7F10000000002 /* SavingsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA01001D29B7F10000000001 /* SavingsListView.swift */; };
+		AA01001E29B7F10000000002 /* SavingsTabScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA01001E29B7F10000000001 /* SavingsTabScreen.swift */; };
+		AA01001F29B7F10000000002 /* SaveSavingsDialog.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA01001F29B7F10000000001 /* SaveSavingsDialog.swift */; };
+		AA01002029B7F10000000002 /* DebtCalculatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA01002029B7F10000000001 /* DebtCalculatorView.swift */; };
+		AA01002129B7F10000000002 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AA01002129B7F10000000001 /* Assets.xcassets */; };
+		AA02000129B7F10000000002 /* FinancialCalculationsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA02000129B7F10000000001 /* FinancialCalculationsTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		AA02000329B7F10000000001 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AA00000129B7F10000000001 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = AA00000229B7F10000000001;
+			remoteInfo = InterestCalculator;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		AA00000329B7F10000000001 /* InterestCalculator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = InterestCalculator.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		AA00000429B7F10000000001 /* InterestCalculatorTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = InterestCalculatorTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		AA01000129B7F10000000001 /* InterestCalculatorApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterestCalculatorApp.swift; sourceTree = "<group>"; };
+		AA01000229B7F10000000001 /* CalculationParamsModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculationParamsModels.swift; sourceTree = "<group>"; };
+		AA01000329B7F10000000001 /* DebtModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebtModels.swift; sourceTree = "<group>"; };
+		AA01000429B7F10000000001 /* KpiProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KpiProfile.swift; sourceTree = "<group>"; };
+		AA01000529B7F10000000001 /* LoanProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoanProfile.swift; sourceTree = "<group>"; };
+		AA01000629B7F10000000001 /* SavingsProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavingsProfile.swift; sourceTree = "<group>"; };
+		AA01000729B7F10000000001 /* LoanCalculator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoanCalculator.swift; sourceTree = "<group>"; };
+		AA01000829B7F10000000001 /* SavingsCalculator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavingsCalculator.swift; sourceTree = "<group>"; };
+		AA01000929B7F10000000001 /* DebtCalculator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebtCalculator.swift; sourceTree = "<group>"; };
+		AA01000A29B7F10000000001 /* BankDataRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BankDataRepository.swift; sourceTree = "<group>"; };
+		AA01000B29B7F10000000001 /* CurrencyUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyUtils.swift; sourceTree = "<group>"; };
+		AA01000C29B7F10000000001 /* DateTimeUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateTimeUtils.swift; sourceTree = "<group>"; };
+		AA01000D29B7F10000000001 /* AppTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTheme.swift; sourceTree = "<group>"; };
+		AA01000E29B7F10000000001 /* MainBankScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainBankScreen.swift; sourceTree = "<group>"; };
+		AA01000F29B7F10000000001 /* KpiHeaderBanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KpiHeaderBanner.swift; sourceTree = "<group>"; };
+		AA01001029B7F10000000001 /* MoneyInputField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoneyInputField.swift; sourceTree = "<group>"; };
+		AA01001129B7F10000000001 /* RateInputField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RateInputField.swift; sourceTree = "<group>"; };
+		AA01001229B7F10000000001 /* TermInputField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermInputField.swift; sourceTree = "<group>"; };
+		AA01001329B7F10000000001 /* DateInputField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateInputField.swift; sourceTree = "<group>"; };
+		AA01001429B7F10000000001 /* ScheduleTableDialog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleTableDialog.swift; sourceTree = "<group>"; };
+		AA01001529B7F10000000001 /* DebtScheduleDialog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebtScheduleDialog.swift; sourceTree = "<group>"; };
+		AA01001629B7F10000000001 /* ShareQuoteDialog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareQuoteDialog.swift; sourceTree = "<group>"; };
+		AA01001729B7F10000000001 /* SavedParamsDialog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedParamsDialog.swift; sourceTree = "<group>"; };
+		AA01001829B7F10000000001 /* LoanCalculatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoanCalculatorView.swift; sourceTree = "<group>"; };
+		AA01001929B7F10000000001 /* LoanListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoanListView.swift; sourceTree = "<group>"; };
+		AA01001A29B7F10000000001 /* LoanTabScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoanTabScreen.swift; sourceTree = "<group>"; };
+		AA01001B29B7F10000000001 /* SaveLoanDialog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveLoanDialog.swift; sourceTree = "<group>"; };
+		AA01001C29B7F10000000001 /* SavingsCalculatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavingsCalculatorView.swift; sourceTree = "<group>"; };
+		AA01001D29B7F10000000001 /* SavingsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavingsListView.swift; sourceTree = "<group>"; };
+		AA01001E29B7F10000000001 /* SavingsTabScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavingsTabScreen.swift; sourceTree = "<group>"; };
+		AA01001F29B7F10000000001 /* SaveSavingsDialog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveSavingsDialog.swift; sourceTree = "<group>"; };
+		AA01002029B7F10000000001 /* DebtCalculatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebtCalculatorView.swift; sourceTree = "<group>"; };
+		AA01002129B7F10000000001 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		AA01002229B7F10000000001 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AA02000129B7F10000000001 /* FinancialCalculationsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinancialCalculationsTests.swift; sourceTree = "<group>"; };
+		AA02000229B7F10000000001 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		AA00000529B7F10000000001 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AA00000629B7F10000000001 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		AA00000729B7F10000000001 = {
+			isa = PBXGroup;
+			children = (
+				AA00000829B7F10000000001 /* InterestCalculator */,
+				AA00000929B7F10000000001 /* InterestCalculatorTests */,
+				AA00000A29B7F10000000001 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		AA00000829B7F10000000001 /* InterestCalculator */ = {
+			isa = PBXGroup;
+			children = (
+				AA00000B29B7F10000000001 /* App */,
+				AA00000C29B7F10000000001 /* Models */,
+				AA00000D29B7F10000000001 /* Domain */,
+				AA00000E29B7F10000000001 /* Repository */,
+				AA00000F29B7F10000000001 /* Utils */,
+				AA00001029B7F10000000001 /* Theme */,
+				AA00001129B7F10000000001 /* Views */,
+				AA01002129B7F10000000001 /* Assets.xcassets */,
+				AA01002229B7F10000000001 /* Info.plist */,
+			);
+			path = InterestCalculator;
+			sourceTree = "<group>";
+		};
+		AA00000B29B7F10000000001 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				AA01000129B7F10000000001 /* InterestCalculatorApp.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		AA00000C29B7F10000000001 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				AA01000229B7F10000000001 /* CalculationParamsModels.swift */,
+				AA01000329B7F10000000001 /* DebtModels.swift */,
+				AA01000429B7F10000000001 /* KpiProfile.swift */,
+				AA01000529B7F10000000001 /* LoanProfile.swift */,
+				AA01000629B7F10000000001 /* SavingsProfile.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		AA00000D29B7F10000000001 /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+				AA01000729B7F10000000001 /* LoanCalculator.swift */,
+				AA01000829B7F10000000001 /* SavingsCalculator.swift */,
+				AA01000929B7F10000000001 /* DebtCalculator.swift */,
+			);
+			path = Domain;
+			sourceTree = "<group>";
+		};
+		AA00000E29B7F10000000001 /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+				AA01000A29B7F10000000001 /* BankDataRepository.swift */,
+			);
+			path = Repository;
+			sourceTree = "<group>";
+		};
+		AA00000F29B7F10000000001 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				AA01000B29B7F10000000001 /* CurrencyUtils.swift */,
+				AA01000C29B7F10000000001 /* DateTimeUtils.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		AA00001029B7F10000000001 /* Theme */ = {
+			isa = PBXGroup;
+			children = (
+				AA01000D29B7F10000000001 /* AppTheme.swift */,
+			);
+			path = Theme;
+			sourceTree = "<group>";
+		};
+		AA00001129B7F10000000001 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				AA01000E29B7F10000000001 /* MainBankScreen.swift */,
+				AA00001229B7F10000000001 /* Components */,
+				AA00001329B7F10000000001 /* Loan */,
+				AA00001429B7F10000000001 /* Savings */,
+				AA00001529B7F10000000001 /* Debt */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		AA00001229B7F10000000001 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				AA01000F29B7F10000000001 /* KpiHeaderBanner.swift */,
+				AA01001029B7F10000000001 /* MoneyInputField.swift */,
+				AA01001129B7F10000000001 /* RateInputField.swift */,
+				AA01001229B7F10000000001 /* TermInputField.swift */,
+				AA01001329B7F10000000001 /* DateInputField.swift */,
+				AA01001429B7F10000000001 /* ScheduleTableDialog.swift */,
+				AA01001529B7F10000000001 /* DebtScheduleDialog.swift */,
+				AA01001629B7F10000000001 /* ShareQuoteDialog.swift */,
+				AA01001729B7F10000000001 /* SavedParamsDialog.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		AA00001329B7F10000000001 /* Loan */ = {
+			isa = PBXGroup;
+			children = (
+				AA01001829B7F10000000001 /* LoanCalculatorView.swift */,
+				AA01001929B7F10000000001 /* LoanListView.swift */,
+				AA01001A29B7F10000000001 /* LoanTabScreen.swift */,
+				AA01001B29B7F10000000001 /* SaveLoanDialog.swift */,
+			);
+			path = Loan;
+			sourceTree = "<group>";
+		};
+		AA00001429B7F10000000001 /* Savings */ = {
+			isa = PBXGroup;
+			children = (
+				AA01001C29B7F10000000001 /* SavingsCalculatorView.swift */,
+				AA01001D29B7F10000000001 /* SavingsListView.swift */,
+				AA01001E29B7F10000000001 /* SavingsTabScreen.swift */,
+				AA01001F29B7F10000000001 /* SaveSavingsDialog.swift */,
+			);
+			path = Savings;
+			sourceTree = "<group>";
+		};
+		AA00001529B7F10000000001 /* Debt */ = {
+			isa = PBXGroup;
+			children = (
+				AA01002029B7F10000000001 /* DebtCalculatorView.swift */,
+			);
+			path = Debt;
+			sourceTree = "<group>";
+		};
+		AA00000929B7F10000000001 /* InterestCalculatorTests */ = {
+			isa = PBXGroup;
+			children = (
+				AA02000129B7F10000000001 /* FinancialCalculationsTests.swift */,
+				AA02000229B7F10000000001 /* Info.plist */,
+			);
+			path = InterestCalculatorTests;
+			sourceTree = "<group>";
+		};
+		AA00000A29B7F10000000001 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				AA00000329B7F10000000001 /* InterestCalculator.app */,
+				AA00000429B7F10000000001 /* InterestCalculatorTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		AA00000229B7F10000000001 /* InterestCalculator */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AA00001629B7F10000000001 /* Build configuration list for PBXNativeTarget "InterestCalculator" */;
+			buildPhases = (
+				AA00001729B7F10000000001 /* Sources */,
+				AA00000529B7F10000000001 /* Frameworks */,
+				AA00001829B7F10000000001 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = InterestCalculator;
+			productName = InterestCalculator;
+			productReference = AA00000329B7F10000000001 /* InterestCalculator.app */;
+			productType = "com.apple.product-type.application";
+		};
+		AA00001929B7F10000000001 /* InterestCalculatorTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AA00001A29B7F10000000001 /* Build configuration list for PBXNativeTarget "InterestCalculatorTests" */;
+			buildPhases = (
+				AA00001B29B7F10000000001 /* Sources */,
+				AA00000629B7F10000000001 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				AA00001C29B7F10000000001 /* PBXTargetDependency */,
+			);
+			name = InterestCalculatorTests;
+			productName = InterestCalculatorTests;
+			productReference = AA00000429B7F10000000001 /* InterestCalculatorTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		AA00000129B7F10000000001 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1500;
+				LastUpgradeCheck = 1500;
+				TargetAttributes = {
+					AA00000229B7F10000000001 = {
+						CreatedOnToolsVersion = 15.0;
+					};
+					AA00001929B7F10000000001 = {
+						CreatedOnToolsVersion = 15.0;
+						TestTargetID = AA00000229B7F10000000001;
+					};
+				};
+			};
+			buildConfigurationList = AA00001D29B7F10000000001 /* Build configuration list for PBXProject "InterestCalculator" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = AA00000729B7F10000000001;
+			productRefGroup = AA00000A29B7F10000000001 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				AA00000229B7F10000000001 /* InterestCalculator */,
+				AA00001929B7F10000000001 /* InterestCalculatorTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		AA00001829B7F10000000001 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AA01002129B7F10000000002 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		AA00001729B7F10000000001 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AA01000129B7F10000000002 /* InterestCalculatorApp.swift in Sources */,
+				AA01000229B7F10000000002 /* CalculationParamsModels.swift in Sources */,
+				AA01000329B7F10000000002 /* DebtModels.swift in Sources */,
+				AA01000429B7F10000000002 /* KpiProfile.swift in Sources */,
+				AA01000529B7F10000000002 /* LoanProfile.swift in Sources */,
+				AA01000629B7F10000000002 /* SavingsProfile.swift in Sources */,
+				AA01000729B7F10000000002 /* LoanCalculator.swift in Sources */,
+				AA01000829B7F10000000002 /* SavingsCalculator.swift in Sources */,
+				AA01000929B7F10000000002 /* DebtCalculator.swift in Sources */,
+				AA01000A29B7F10000000002 /* BankDataRepository.swift in Sources */,
+				AA01000B29B7F10000000002 /* CurrencyUtils.swift in Sources */,
+				AA01000C29B7F10000000002 /* DateTimeUtils.swift in Sources */,
+				AA01000D29B7F10000000002 /* AppTheme.swift in Sources */,
+				AA01000E29B7F10000000002 /* MainBankScreen.swift in Sources */,
+				AA01000F29B7F10000000002 /* KpiHeaderBanner.swift in Sources */,
+				AA01001029B7F10000000002 /* MoneyInputField.swift in Sources */,
+				AA01001129B7F10000000002 /* RateInputField.swift in Sources */,
+				AA01001229B7F10000000002 /* TermInputField.swift in Sources */,
+				AA01001329B7F10000000002 /* DateInputField.swift in Sources */,
+				AA01001429B7F10000000002 /* ScheduleTableDialog.swift in Sources */,
+				AA01001529B7F10000000002 /* DebtScheduleDialog.swift in Sources */,
+				AA01001629B7F10000000002 /* ShareQuoteDialog.swift in Sources */,
+				AA01001729B7F10000000002 /* SavedParamsDialog.swift in Sources */,
+				AA01001829B7F10000000002 /* LoanCalculatorView.swift in Sources */,
+				AA01001929B7F10000000002 /* LoanListView.swift in Sources */,
+				AA01001A29B7F10000000002 /* LoanTabScreen.swift in Sources */,
+				AA01001B29B7F10000000002 /* SaveLoanDialog.swift in Sources */,
+				AA01001C29B7F10000000002 /* SavingsCalculatorView.swift in Sources */,
+				AA01001D29B7F10000000002 /* SavingsListView.swift in Sources */,
+				AA01001E29B7F10000000002 /* SavingsTabScreen.swift in Sources */,
+				AA01001F29B7F10000000002 /* SaveSavingsDialog.swift in Sources */,
+				AA01002029B7F10000000002 /* DebtCalculatorView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AA00001B29B7F10000000001 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AA02000129B7F10000000002 /* FinancialCalculationsTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		AA00001C29B7F10000000001 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = AA00000229B7F10000000001 /* InterestCalculator */;
+			targetProxy = AA02000329B7F10000000001 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		AA00001E29B7F10000000001 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDEFINED_VARIABLES = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		AA00001F29B7F10000000001 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDEFINED_VARIABLES = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		AA00002029B7F10000000001 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "";
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = InterestCalculator/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "Trợ Lý Ngân Hàng";
+				INFOPLIST_KEY_LSRequiresIPhoneOS = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UIRequiredDeviceCapabilities = arm64;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.interestcalculator;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		AA00002129B7F10000000001 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "";
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = InterestCalculator/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "Trợ Lý Ngân Hàng";
+				INFOPLIST_KEY_LSRequiresIPhoneOS = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UIRequiredDeviceCapabilities = arm64;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.interestcalculator;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		AA00002229B7F10000000001 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = InterestCalculatorTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.interestcalculatorTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/InterestCalculator.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/InterestCalculator";
+			};
+			name = Debug;
+		};
+		AA00002329B7F10000000001 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = InterestCalculatorTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.interestcalculatorTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/InterestCalculator.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/InterestCalculator";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		AA00001D29B7F10000000001 /* Build configuration list for PBXProject "InterestCalculator" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AA00001E29B7F10000000001 /* Debug */,
+				AA00001F29B7F10000000001 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		AA00001629B7F10000000001 /* Build configuration list for PBXNativeTarget "InterestCalculator" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AA00002029B7F10000000001 /* Debug */,
+				AA00002129B7F10000000001 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		AA00001A29B7F10000000001 /* Build configuration list for PBXNativeTarget "InterestCalculatorTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AA00002229B7F10000000001 /* Debug */,
+				AA00002329B7F10000000001 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = AA00000129B7F10000000001 /* Project object */;
+}
