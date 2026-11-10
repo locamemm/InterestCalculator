@@ -11,3 +11,4 @@
 2. `git commit -m "<mô tả thay đổi rõ ràng>"`
 3. `git push origin main`
 4. Nếu remote có commit mới, tự động chạy `git pull --rebase origin main` rồi push lại.
+
