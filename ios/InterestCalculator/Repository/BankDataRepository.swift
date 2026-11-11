@@ -19,6 +19,9 @@ class BankDataRepository: ObservableObject {
     @Published var lastDebtParams: SavedDebtParams
     @Published var savedDebtPresets: [SavedDebtParams] = []
     
+    @Published var lastDepositParams: SavedDepositParams
+    @Published var savedDepositPresets: [SavedDepositParams] = []
+    
     private let storageUrl: URL
     
     init() {
@@ -46,6 +49,27 @@ class BankDataRepository: ObservableObject {
                 )
             ]
         )
+        self.lastDepositParams = SavedDepositParams(
+            startDateStr: today,
+            counterRate: 5.5,
+            onlineRate: 6.0,
+            paymentType: .endOfTerm,
+            isCompounding: false,
+            items: [
+                DepositSourceItem(
+                    name: "Vietcombank (Tại quầy)",
+                    sourceType: .counter,
+                    principalAmount: 500_000_000.0,
+                    maturityDate: DateTimeUtils.addMonths(today, 12)
+                ),
+                DepositSourceItem(
+                    name: "Techcombank (Online)",
+                    sourceType: .online,
+                    principalAmount: 300_000_000.0,
+                    maturityDate: DateTimeUtils.addMonths(today, 6)
+                )
+            ]
+        )
         
         loadData()
     }
@@ -60,6 +84,8 @@ class BankDataRepository: ObservableObject {
         var savedSavingsPresets: [SavedSavingsParams]?
         var lastDebtParams: SavedDebtParams?
         var savedDebtPresets: [SavedDebtParams]?
+        var lastDepositParams: SavedDepositParams?
+        var savedDepositPresets: [SavedDepositParams]?
     }
     
     func loadData() {
@@ -90,6 +116,8 @@ class BankDataRepository: ObservableObject {
             if let sps = container.savedSavingsPresets { self.savedSavingsPresets = sps }
             if let dp = container.lastDebtParams { self.lastDebtParams = dp }
             if let dps = container.savedDebtPresets { self.savedDebtPresets = dps }
+            if let depP = container.lastDepositParams { self.lastDepositParams = depP }
+            if let depPs = container.savedDepositPresets { self.savedDepositPresets = depPs }
         } catch {
             print("Failed to decode bank data: \(error)")
             initDefaultSampleData()
@@ -107,7 +135,9 @@ class BankDataRepository: ObservableObject {
             savedLoanPresets: savedLoanPresets,
             savedSavingsPresets: savedSavingsPresets,
             lastDebtParams: lastDebtParams,
-            savedDebtPresets: savedDebtPresets
+            savedDebtPresets: savedDebtPresets,
+            lastDepositParams: lastDepositParams,
+            savedDepositPresets: savedDepositPresets
         )
         
         DispatchQueue.global(qos: .background).async { [weak self] in
@@ -308,6 +338,22 @@ class BankDataRepository: ObservableObject {
     
     func deleteDebtPreset(id: String) {
         savedDebtPresets.removeAll { $0.id == id }
+        saveDataToFile()
+    }
+    
+    // MARK: - Deposit Presets
+    func updateLastDepositParams(_ params: SavedDepositParams) {
+        self.lastDepositParams = params
+        saveDataToFile()
+    }
+    
+    func saveDepositPreset(_ params: SavedDepositParams) {
+        savedDepositPresets.insert(params, at: 0)
+        saveDataToFile()
+    }
+    
+    func deleteDepositPreset(id: String) {
+        savedDepositPresets.removeAll { $0.id == id }
         saveDataToFile()
     }
 }

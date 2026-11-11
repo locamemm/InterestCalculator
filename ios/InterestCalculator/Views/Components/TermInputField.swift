@@ -8,21 +8,21 @@ import SwiftUI
 struct TermInputField: View {
     let label: String
     @Binding var termMonths: Int
-    var quickTerms: [(title: String, months: Int)] = [
-        ("6 tháng", 6),
-        ("12 tháng", 12),
-        ("2 năm", 24),
-        ("3 năm", 36),
-        ("5 năm", 60),
-        ("10 năm", 120),
-        ("15 năm", 180),
-        ("20 năm", 240),
-        ("25 năm", 300)
-    ]
+    var minMonths: Int = 1
+    var maxMonths: Int = 360
+    var quickTerms: [(title: String, months: Int)] = []
     var accentColor: Color = AppTheme.primary
     
     @State private var textValue: String = ""
+    @State private var selectedStepMonths: Int = 1
     @FocusState private var isFocused: Bool
+    
+    private let stepOptions: [(months: Int, label: String)] = [
+        (1, "+1 th"),
+        (3, "+3 th"),
+        (6, "+6 th"),
+        (12, "+12 th (1 năm)")
+    ]
     
     var body: some View {
         VStack(alignment: .leading, spacing: 6) {
@@ -31,14 +31,28 @@ struct TermInputField: View {
                 .fontWeight(.semibold)
                 .foregroundColor(.secondary)
             
-            HStack {
+            HStack(spacing: 8) {
+                // Subtract step button
+                Button {
+                    let next = max(minMonths, termMonths - selectedStepMonths)
+                    termMonths = next
+                    textValue = "\(next)"
+                } label: {
+                    Image(systemName: "minus.circle.fill")
+                        .font(.title3)
+                        .foregroundColor(.red)
+                }
+                .buttonStyle(.plain)
+                
                 TextField("Số tháng", text: $textValue)
                     .keyboardType(.numberPad)
-                    .font(.system(size: 20, weight: .bold, design: .rounded))
+                    .font(.system(size: 19, weight: .bold, design: .rounded))
                     .focused($isFocused)
                     .onChange(of: textValue) { newValue in
                         if let val = Int(newValue) {
-                            termMonths = val
+                            termMonths = min(maxMonths, max(0, val))
+                        } else if newValue.isEmpty {
+                            termMonths = 0
                         }
                     }
                 
@@ -46,6 +60,17 @@ struct TermInputField: View {
                     .font(.headline)
                     .fontWeight(.bold)
                     .foregroundColor(accentColor)
+                
+                if termMonths > 0 {
+                    Button {
+                        termMonths = 0
+                        textValue = ""
+                    } label: {
+                        Image(systemName: "xmark.circle.fill")
+                            .foregroundColor(.secondary)
+                    }
+                    .buttonStyle(.plain)
+                }
             }
             .padding(12)
             .background(Color(UIColor.secondarySystemGroupedBackground))
@@ -59,30 +84,42 @@ struct TermInputField: View {
             if termMonths > 0 {
                 let y = termMonths / 12
                 let m = termMonths % 12
-                let yStr = y > 0 ? "\(y) năm " : ""
-                let mStr = m > 0 ? "\(m) tháng" : ""
-                Text("Thời hạn: \(termMonths) tháng (~ \(yStr)\(mStr))")
+                let yearDesc: String = {
+                    if y > 0 && m > 0 { return "≈ \(y) năm \(m) tháng" }
+                    if y > 0 { return "≈ \(y) năm" }
+                    return "Thời hạn: \(termMonths) tháng"
+                }()
+                Text(yearDesc)
                     .font(.caption)
-                    .foregroundColor(.secondary)
+                    .fontWeight(.medium)
+                    .foregroundColor(accentColor)
             }
             
-            // Quick chips
+            // Step increment chips
             ScrollView(.horizontal, showsIndicators: false) {
                 HStack(spacing: 8) {
-                    ForEach(quickTerms, id: \.months) { item in
+                    ForEach(stepOptions, id: \.months) { step in
+                        let isSelected = selectedStepMonths == step.months
                         Button {
-                            termMonths = item.months
-                            textValue = "\(item.months)"
+                            selectedStepMonths = step.months
+                            let next = min(maxMonths, termMonths + step.months)
+                            termMonths = next
+                            textValue = "\(next)"
                         } label: {
-                            Text(item.title)
+                            Text(step.label)
                                 .font(.caption)
-                                .fontWeight(termMonths == item.months ? .bold : .medium)
+                                .fontWeight(isSelected ? .bold : .medium)
                                 .padding(.horizontal, 10)
-                                .padding(.vertical, 5)
-                                .background(termMonths == item.months ? accentColor.opacity(0.15) : Color.gray.opacity(0.1))
-                                .foregroundColor(termMonths == item.months ? accentColor : .primary)
-                                .cornerRadius(8)
+                                .padding(.vertical, 6)
+                                .background(isSelected ? accentColor.opacity(0.18) : Color.gray.opacity(0.1))
+                                .foregroundColor(isSelected ? accentColor : .primary)
+                                .cornerRadius(10)
+                                .overlay(
+                                    RoundedRectangle(cornerRadius: 10)
+                                        .stroke(isSelected ? accentColor.opacity(0.5) : Color.clear, lineWidth: 1)
+                                )
                         }
+                        .buttonStyle(.plain)
                     }
                 }
             }
@@ -94,9 +131,8 @@ struct TermInputField: View {
         }
         .onChange(of: termMonths) { newTerm in
             if Int(textValue) != newTerm {
-                textValue = "\(newTerm)"
+                textValue = newTerm > 0 ? "\(newTerm)" : ""
             }
         }
     }
 }
-

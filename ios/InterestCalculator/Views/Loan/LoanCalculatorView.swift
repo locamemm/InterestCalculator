@@ -365,6 +365,7 @@ struct LoanCalculatorView: View {
                 .padding(.bottom, 24)
             }
         }
+        .scrollDismissesKeyboard(.interactively)
         .background(AppTheme.background)
         .onAppear {
             loadFromLastParams(repository.lastLoanParams)

@@ -46,7 +46,7 @@ struct MainBankScreen: View {
                     }
                 )
                 
-                // 3 Main Horizontal Segmented Tabs
+                // 4 Main Horizontal Tabs
                 HStack(spacing: 4) {
                     TabButton(
                         title: "CHO VAY",
@@ -54,6 +54,7 @@ struct MainBankScreen: View {
                         isSelected: mainTabIndex == 0,
                         activeColor: AppTheme.primary
                     ) {
+                        KeyboardHelper.hide()
                         mainTabIndex = 0
                     }
                     
@@ -63,16 +64,28 @@ struct MainBankScreen: View {
                         isSelected: mainTabIndex == 1,
                         activeColor: AppTheme.green
                     ) {
+                        KeyboardHelper.hide()
                         mainTabIndex = 1
+                    }
+                    
+                    TabButton(
+                        title: "LÃI TIỀN GỬI",
+                        systemImage: "wallet.pass.fill",
+                        isSelected: mainTabIndex == 2,
+                        activeColor: AppTheme.teal
+                    ) {
+                        KeyboardHelper.hide()
+                        mainTabIndex = 2
                     }
                     
                     TabButton(
                         title: "TÍNH DƯ NỢ",
                         systemImage: "creditcard.fill",
-                        isSelected: mainTabIndex == 2,
+                        isSelected: mainTabIndex == 3,
                         activeColor: AppTheme.orange
                     ) {
-                        mainTabIndex = 2
+                        KeyboardHelper.hide()
+                        mainTabIndex = 3
                     }
                 }
                 .padding(.horizontal, 12)
@@ -92,6 +105,10 @@ struct MainBankScreen: View {
                             repository: repository,
                             selectedSubTab: $savingsSubTabIndex
                         )
+                    case 2:
+                        DepositCalculatorView(
+                            repository: repository
+                        )
                     default:
                         DebtCalculatorView(
                             repository: repository
@@ -102,6 +119,7 @@ struct MainBankScreen: View {
             }
             .background(AppTheme.background)
             .navigationBarHidden(true)
+            .keyboardDoneToolbar()
         }
     }
 }
@@ -115,14 +133,17 @@ private struct TabButton: View {
     
     var body: some View {
         Button(action: action) {
-            HStack(spacing: 6) {
+            VStack(spacing: 3) {
                 Image(systemName: systemImage)
-                    .font(.system(size: 13, weight: .bold))
+                    .font(.system(size: 14, weight: .bold))
                 Text(title)
-                    .font(.system(size: 12, weight: .heavy, design: .rounded))
+                    .font(.system(size: 10, weight: .heavy, design: .rounded))
+                    .lineLimit(1)
+                    .minimumScaleFactor(0.8)
             }
             .frame(maxWidth: .infinity)
-            .padding(.vertical, 10)
+            .padding(.vertical, 8)
+            .padding(.horizontal, 2)
             .background(isSelected ? activeColor.opacity(0.12) : Color.clear)
             .foregroundColor(isSelected ? activeColor : .secondary)
             .cornerRadius(10)

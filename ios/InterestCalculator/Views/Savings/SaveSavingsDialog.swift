@@ -101,6 +101,7 @@ struct SaveSavingsSheet: View {
                         .lineLimit(3...6)
                 }
             }
+            .scrollDismissesKeyboard(.interactively)
             .navigationTitle(initialProfile != nil ? "Sửa sổ tiết kiệm" : "Lưu sổ tiết kiệm mới")
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
@@ -135,6 +136,7 @@ struct SaveSavingsSheet: View {
                     .fontWeight(.bold)
                 }
             }
+            .keyboardDoneToolbar()
         }
     }
 }

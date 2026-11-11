@@ -341,6 +341,7 @@ struct DebtCalculatorView: View {
                 .padding(.bottom, 24)
             }
         }
+        .scrollDismissesKeyboard(.interactively)
         .background(AppTheme.background)
         .onAppear {
             loadFromLastParams(repository.lastDebtParams)
@@ -477,6 +478,7 @@ private struct EditDebtItemSheet: View {
                         .keyboardType(.decimalPad)
                 }
             }
+            .scrollDismissesKeyboard(.interactively)
             .navigationTitle(initialItem != nil ? "Sửa khoản nợ" : "Thêm khoản nợ mới")
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
@@ -499,6 +501,7 @@ private struct EditDebtItemSheet: View {
                     .fontWeight(.bold)
                 }
             }
+            .keyboardDoneToolbar()
         }
     }
 }

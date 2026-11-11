@@ -39,6 +39,11 @@
 		AA01001E29B7F10000000002 /* SavingsTabScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA01001E29B7F10000000001 /* SavingsTabScreen.swift */; };
 		AA01001F29B7F10000000002 /* SaveSavingsDialog.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA01001F29B7F10000000001 /* SaveSavingsDialog.swift */; };
 		AA01002029B7F10000000002 /* DebtCalculatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA01002029B7F10000000001 /* DebtCalculatorView.swift */; };
+		AA01002329B7F10000000002 /* KeyboardHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA01002329B7F10000000001 /* KeyboardHelper.swift */; };
+		AA01002429B7F10000000002 /* DepositModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA01002429B7F10000000001 /* DepositModels.swift */; };
+		AA01002529B7F10000000002 /* DepositCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA01002529B7F10000000001 /* DepositCalculator.swift */; };
+		AA01002629B7F10000000002 /* DepositScheduleDialog.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA01002629B7F10000000001 /* DepositScheduleDialog.swift */; };
+		AA01002729B7F10000000002 /* DepositCalculatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA01002729B7F10000000001 /* DepositCalculatorView.swift */; };
 		AA01002129B7F10000000002 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AA01002129B7F10000000001 /* Assets.xcassets */; };
 		AA02000129B7F10000000002 /* FinancialCalculationsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA02000129B7F10000000001 /* FinancialCalculationsTests.swift */; };
 /* End PBXBuildFile section */
@@ -88,6 +93,11 @@
 		AA01001E29B7F10000000001 /* SavingsTabScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavingsTabScreen.swift; sourceTree = "<group>"; };
 		AA01001F29B7F10000000001 /* SaveSavingsDialog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveSavingsDialog.swift; sourceTree = "<group>"; };
 		AA01002029B7F10000000001 /* DebtCalculatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebtCalculatorView.swift; sourceTree = "<group>"; };
+		AA01002329B7F10000000001 /* KeyboardHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardHelper.swift; sourceTree = "<group>"; };
+		AA01002429B7F10000000001 /* DepositModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DepositModels.swift; sourceTree = "<group>"; };
+		AA01002529B7F10000000001 /* DepositCalculator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DepositCalculator.swift; sourceTree = "<group>"; };
+		AA01002629B7F10000000001 /* DepositScheduleDialog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DepositScheduleDialog.swift; sourceTree = "<group>"; };
+		AA01002729B7F10000000001 /* DepositCalculatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DepositCalculatorView.swift; sourceTree = "<group>"; };
 		AA01002129B7F10000000001 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AA01002229B7F10000000001 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AA02000129B7F10000000001 /* FinancialCalculationsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinancialCalculationsTests.swift; sourceTree = "<group>"; };
@@ -150,6 +160,7 @@
 			children = (
 				AA01000229B7F10000000001 /* CalculationParamsModels.swift */,
 				AA01000329B7F10000000001 /* DebtModels.swift */,
+				AA01002429B7F10000000001 /* DepositModels.swift */,
 				AA01000429B7F10000000001 /* KpiProfile.swift */,
 				AA01000529B7F10000000001 /* LoanProfile.swift */,
 				AA01000629B7F10000000001 /* SavingsProfile.swift */,
@@ -163,6 +174,7 @@
 				AA01000729B7F10000000001 /* LoanCalculator.swift */,
 				AA01000829B7F10000000001 /* SavingsCalculator.swift */,
 				AA01000929B7F10000000001 /* DebtCalculator.swift */,
+				AA01002529B7F10000000001 /* DepositCalculator.swift */,
 			);
 			path = Domain;
 			sourceTree = "<group>";
@@ -180,6 +192,7 @@
 			children = (
 				AA01000B29B7F10000000001 /* CurrencyUtils.swift */,
 				AA01000C29B7F10000000001 /* DateTimeUtils.swift */,
+				AA01002329B7F10000000001 /* KeyboardHelper.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -200,6 +213,7 @@
 				AA00001329B7F10000000001 /* Loan */,
 				AA00001429B7F10000000001 /* Savings */,
 				AA00001529B7F10000000001 /* Debt */,
+				AA0000F029B7F10000000001 /* Deposit */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -214,6 +228,7 @@
 				AA01001329B7F10000000001 /* DateInputField.swift */,
 				AA01001429B7F10000000001 /* ScheduleTableDialog.swift */,
 				AA01001529B7F10000000001 /* DebtScheduleDialog.swift */,
+				AA01002629B7F10000000001 /* DepositScheduleDialog.swift */,
 				AA01001629B7F10000000001 /* ShareQuoteDialog.swift */,
 				AA01001729B7F10000000001 /* SavedParamsDialog.swift */,
 			);
@@ -248,6 +263,14 @@
 				AA01002029B7F10000000001 /* DebtCalculatorView.swift */,
 			);
 			path = Debt;
+			sourceTree = "<group>";
+		};
+		AA0000F029B7F10000000001 /* Deposit */ = {
+			isa = PBXGroup;
+			children = (
+				AA01002729B7F10000000001 /* DepositCalculatorView.swift */,
+			);
+			path = Deposit;
 			sourceTree = "<group>";
 		};
 		AA00000929B7F10000000001 /* InterestCalculatorTests */ = {
@@ -391,6 +414,11 @@
 				AA01001E29B7F10000000002 /* SavingsTabScreen.swift in Sources */,
 				AA01001F29B7F10000000002 /* SaveSavingsDialog.swift in Sources */,
 				AA01002029B7F10000000002 /* DebtCalculatorView.swift in Sources */,
+				AA01002329B7F10000000002 /* KeyboardHelper.swift in Sources */,
+				AA01002429B7F10000000002 /* DepositModels.swift in Sources */,
+				AA01002529B7F10000000002 /* DepositCalculator.swift in Sources */,
+				AA01002629B7F10000000002 /* DepositScheduleDialog.swift in Sources */,
+				AA01002729B7F10000000002 /* DepositCalculatorView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -125,23 +125,14 @@ struct SavingsCalculatorView: View {
                         .pickerStyle(.segmented)
                     }
                     
-                    VStack(alignment: .leading, spacing: 6) {
-                        Text("Lãi suất huy động (%/năm)")
-                            .font(.subheadline)
-                            .fontWeight(.semibold)
-                            .foregroundColor(.secondary)
-                        
-                        TextField("0.0", value: $interestRate, format: .number)
-                            .keyboardType(.decimalPad)
-                            .font(.system(size: 20, weight: .bold, design: .rounded))
-                            .padding(12)
-                            .background(Color(UIColor.secondarySystemGroupedBackground))
-                            .cornerRadius(12)
-                            .overlay(
-                                RoundedRectangle(cornerRadius: 12)
-                                    .stroke(Color.gray.opacity(0.2), lineWidth: 1.5)
-                            )
-                    }
+                    RateInputField(
+                        label: "Lãi suất huy động",
+                        rate: $interestRate,
+                        isMonthly: .constant(false),
+                        allowPeriodToggle: false,
+                        quickRates: [4.0, 4.8, 5.2, 5.8, 6.5],
+                        accentColor: AppTheme.green
+                    )
                     
                     DateInputField(
                         label: "Ngày mở sổ / gửi tiền",
@@ -316,6 +307,7 @@ struct SavingsCalculatorView: View {
                 .padding(.bottom, 24)
             }
         }
+        .scrollDismissesKeyboard(.interactively)
         .background(AppTheme.background)
         .onAppear {
             loadFromLastParams(repository.lastSavingsParams)

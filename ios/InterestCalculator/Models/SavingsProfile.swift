@@ -38,6 +38,15 @@ enum SavingsPaymentType: String, CaseIterable, Codable {
         }
     }
     
+    var shortTitle: String {
+        switch self {
+        case .endOfTerm: return "Cuối kỳ"
+        case .monthly: return "Hàng tháng"
+        case .quarterly: return "Hàng quý"
+        case .upfront: return "Đầu kỳ"
+        }
+    }
+    
     var description: String {
         switch self {
         case .endOfTerm: return "Nhận toàn bộ tiền lãi và gốc khi đáo hạn sổ"

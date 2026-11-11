@@ -112,6 +112,7 @@ struct SaveLoanSheet: View {
                         .lineLimit(3...6)
                 }
             }
+            .scrollDismissesKeyboard(.interactively)
             .navigationTitle(initialProfile != nil ? "Sửa hồ sơ vay" : "Lưu hồ sơ vay mới")
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
@@ -149,6 +150,7 @@ struct SaveLoanSheet: View {
                     .fontWeight(.bold)
                 }
             }
+            .keyboardDoneToolbar()
         }
     }
 }

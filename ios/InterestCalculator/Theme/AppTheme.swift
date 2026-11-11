@@ -17,6 +17,10 @@ enum AppTheme {
     static let orange = Color(red: 0xE6/255.0, green: 0x51/255.0, blue: 0x00/255.0)
     static let orangeContainer = Color(red: 0xFF/255.0, green: 0xF3/255.0, blue: 0xE0/255.0)
     
+    static let teal = Color(red: 0x00/255.0, green: 0x69/255.0, blue: 0x5C/255.0)
+    static let tealLight = Color(red: 0x00/255.0, green: 0x89/255.0, blue: 0x7B/255.0)
+    static let tealContainer = Color(red: 0xE0/255.0, green: 0xF2/255.0, blue: 0xF1/255.0)
+    
     static let gold = Color(red: 0xFF/255.0, green: 0xA0/255.0, blue: 0x00/255.0)
     static let goldContainer = Color(red: 0xFF/255.0, green: 0xF8/255.0, blue: 0xE1/255.0)
     
@@ -31,6 +35,12 @@ enum AppTheme {
     
     static let greenGradient = LinearGradient(
         colors: [green, greenLight],
+        startPoint: .topLeading,
+        endPoint: .bottomTrailing
+    )
+    
+    static let tealGradient = LinearGradient(
+        colors: [teal, tealLight],
         startPoint: .topLeading,
         endPoint: .bottomTrailing
     )

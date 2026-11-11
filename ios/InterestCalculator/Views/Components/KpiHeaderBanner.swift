@@ -228,6 +228,7 @@ private struct EditKpiSheet: View {
                     }
                 }
             }
+            .scrollDismissesKeyboard(.interactively)
             .navigationTitle("Cập nhật KPI cá nhân")
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
@@ -248,6 +249,7 @@ private struct EditKpiSheet: View {
                     .fontWeight(.bold)
                 }
             }
+            .keyboardDoneToolbar()
         }
     }
 }

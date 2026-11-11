@@ -9,11 +9,45 @@ struct RateInputField: View {
     let label: String
     @Binding var rate: Double
     @Binding var isMonthly: Bool
-    var quickRates: [Double] = [5.5, 6.8, 8.5, 9.5, 10.5, 12.0]
+    var minRate: Double = 0.0
+    var maxRate: Double = 50.0
+    var allowPeriodToggle: Bool = true
+    var quickRates: [Double] = []
     var accentColor: Color = AppTheme.primary
     
     @State private var textValue: String = ""
+    @State private var selectedStepRate: Double = 0.1
     @FocusState private var isFocused: Bool
+    
+    private var stepOptions: [(value: Double, label: String)] {
+        if isMonthly {
+            return [
+                (0.05, "+0.05%"),
+                (0.1, "+0.1%"),
+                (0.2, "+0.2%"),
+                (0.5, "+0.5%")
+            ]
+        } else {
+            return [
+                (0.1, "+0.1%"),
+                (0.2, "+0.2%"),
+                (0.5, "+0.5%"),
+                (1.0, "+1.0%")
+            ]
+        }
+    }
+    
+    private func formatRate(_ val: Double) -> String {
+        if val <= 0 { return "" }
+        let rounded = round(val * 100.0) / 100.0
+        if rounded.truncatingRemainder(dividingBy: 1.0) == 0 {
+            return "\(Int(rounded))"
+        }
+        var str = String(format: "%.2f", rounded)
+        while str.hasSuffix("0") { str.removeLast() }
+        if str.hasSuffix(".") { str.removeLast() }
+        return str
+    }
     
     var body: some View {
         VStack(alignment: .leading, spacing: 6) {
@@ -25,24 +59,52 @@ struct RateInputField: View {
                 
                 Spacer()
                 
-                // Toggle %/năm <-> %/tháng
-                Picker("", selection: $isMonthly) {
-                    Text("%/năm").tag(false)
-                    Text("%/tháng").tag(true)
+                if allowPeriodToggle {
+                    Picker("", selection: Binding(
+                        get: { isMonthly },
+                        set: { newMonthly in
+                            guard newMonthly != isMonthly else { return }
+                            isMonthly = newMonthly
+                            selectedStepRate = 0.1
+                            if rate > 0 {
+                                let converted = newMonthly ? (rate / 12.0) : (rate * 12.0)
+                                let rounded = round(converted * 100.0) / 100.0
+                                rate = rounded
+                                textValue = formatRate(rounded)
+                            }
+                        }
+                    )) {
+                        Text("%/năm").tag(false)
+                        Text("%/tháng").tag(true)
+                    }
+                    .pickerStyle(.segmented)
+                    .frame(width: 150)
                 }
-                .pickerStyle(.segmented)
-                .frame(width: 150)
             }
             
-            HStack {
+            HStack(spacing: 8) {
+                // Subtract step button
+                Button {
+                    let next = max(minRate, round((rate - selectedStepRate) * 100.0) / 100.0)
+                    rate = next
+                    textValue = formatRate(next)
+                } label: {
+                    Image(systemName: "minus.circle.fill")
+                        .font(.title3)
+                        .foregroundColor(.red)
+                }
+                .buttonStyle(.plain)
+                
                 TextField("0.0", text: $textValue)
                     .keyboardType(.decimalPad)
-                    .font(.system(size: 20, weight: .bold, design: .rounded))
+                    .font(.system(size: 19, weight: .bold, design: .rounded))
                     .focused($isFocused)
                     .onChange(of: textValue) { newValue in
                         let cleaned = newValue.replacingOccurrences(of: ",", with: ".")
                         if let d = Double(cleaned) {
                             rate = d
+                        } else if cleaned.isEmpty {
+                            rate = 0.0
                         }
                     }
                 
@@ -50,6 +112,17 @@ struct RateInputField: View {
                     .font(.headline)
                     .fontWeight(.bold)
                     .foregroundColor(accentColor)
+                
+                if rate > 0 {
+                    Button {
+                        rate = 0.0
+                        textValue = ""
+                    } label: {
+                        Image(systemName: "xmark.circle.fill")
+                            .foregroundColor(.secondary)
+                    }
+                    .buttonStyle(.plain)
+                }
             }
             .padding(12)
             .background(Color(UIColor.secondarySystemGroupedBackground))
@@ -62,45 +135,54 @@ struct RateInputField: View {
             // Equivalent rate helper
             if rate > 0 {
                 let eqText: String = isMonthly
-                    ? "Tương đương ~ \(String(format: "%.2f", rate * 12.0))%/năm"
-                    : "Tương đương ~ \(String(format: "%.2f", rate / 12.0))%/tháng"
+                    ? "≈ \(formatRate(rate * 12.0))%/năm (Quy đổi 1 tháng × 12)"
+                    : "≈ \(formatRate(rate / 12.0))%/tháng (Quy đổi 1 năm = 12 tháng)"
                 Text(eqText)
                     .font(.caption)
                     .foregroundColor(.secondary)
             }
             
-            // Quick chips
+            // Step increment chips
             ScrollView(.horizontal, showsIndicators: false) {
                 HStack(spacing: 8) {
-                    ForEach(quickRates, id: \.self) { qRate in
+                    ForEach(stepOptions, id: \.value) { step in
+                        let isSelected = abs(selectedStepRate - step.value) < 0.001
                         Button {
-                            rate = qRate
-                            textValue = String(format: "%.1f", qRate)
+                            selectedStepRate = step.value
+                            let maxCap = isMonthly ? 10.0 : maxRate
+                            let next = min(maxCap, round((rate + step.value) * 100.0) / 100.0)
+                            rate = next
+                            textValue = formatRate(next)
                         } label: {
-                            Text("\(String(format: "%.1f", qRate))%")
+                            Text(step.label)
                                 .font(.caption)
-                                .fontWeight(rate == qRate ? .bold : .medium)
+                                .fontWeight(isSelected ? .bold : .medium)
                                 .padding(.horizontal, 10)
-                                .padding(.vertical, 5)
-                                .background(rate == qRate ? accentColor.opacity(0.15) : Color.gray.opacity(0.1))
-                                .foregroundColor(rate == qRate ? accentColor : .primary)
-                                .cornerRadius(8)
+                                .padding(.vertical, 6)
+                                .background(isSelected ? accentColor.opacity(0.18) : Color.gray.opacity(0.1))
+                                .foregroundColor(isSelected ? accentColor : .primary)
+                                .cornerRadius(10)
+                                .overlay(
+                                    RoundedRectangle(cornerRadius: 10)
+                                        .stroke(isSelected ? accentColor.opacity(0.5) : Color.clear, lineWidth: 1)
+                                )
                         }
+                        .buttonStyle(.plain)
                     }
                 }
             }
         }
         .onAppear {
             if rate > 0 {
-                textValue = String(format: "%.1f", rate)
+                textValue = formatRate(rate)
             }
         }
         .onChange(of: rate) { newRate in
             let cleaned = textValue.replacingOccurrences(of: ",", with: ".")
-            if Double(cleaned) != newRate {
-                textValue = String(format: "%.1f", newRate)
+            let currentParsed = Double(cleaned) ?? 0.0
+            if abs(currentParsed - newRate) > 0.001 {
+                textValue = formatRate(newRate)
             }
         }
     }
 }
-

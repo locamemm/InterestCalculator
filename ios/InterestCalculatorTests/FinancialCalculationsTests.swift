@@ -109,5 +109,64 @@ final class FinancialCalculationsTests: XCTestCase {
         XCTAssertEqual(CurrencyUtils.amountToWords(500_000_000), "Năm trăm triệu đồng")
         XCTAssertEqual(CurrencyUtils.amountToWords(120_500_000), "Một trăm hai mươi triệu năm trăm nghìn đồng")
     }
+
+    func testDepositCalculatorMultiSource() {
+        let start = "15/01/2026"
+        let items = [
+            DepositSourceItem(
+                name: "Sổ Quầy",
+                sourceType: .counter,
+                principalAmount: 200_000_000.0,
+                maturityDate: "15/01/2027"
+            ),
+            DepositSourceItem(
+                name: "Sổ Online",
+                sourceType: .online,
+                principalAmount: 100_000_000.0,
+                maturityDate: "15/07/2026"
+            )
+        ]
+
+        let result = DepositCalculator.calculate(
+            items: items,
+            startDateStr: start,
+            counterRate: 6.0,
+            onlineRate: 6.0,
+            paymentType: .endOfTerm,
+            isCompounding: false
+        )
+
+        // 200tr * 6% * 12/12 = 12tr; 100tr * 6% * 6/12 = 3tr -> tổng lãi = 15tr
+        XCTAssertEqual(result.totalPrincipal, 300_000_000.0, accuracy: 1.0)
+        XCTAssertEqual(result.totalInterest, 15_000_000.0, accuracy: 5.0)
+        XCTAssertEqual(result.totalMaturityAmount, 315_000_000.0, accuracy: 5.0)
+        XCTAssertEqual(result.schedule.count, 12)
+    }
+
+    func testDepositCalculatorMonthlyPayout() {
+        let start = "15/01/2026"
+        let items = [
+            DepositSourceItem(
+                name: "Sổ Hàng Tháng",
+                sourceType: .online,
+                principalAmount: 120_000_000.0,
+                maturityDate: "15/01/2027"
+            )
+        ]
+
+        let result = DepositCalculator.calculate(
+            items: items,
+            startDateStr: start,
+            counterRate: 5.0,
+            onlineRate: 6.0,
+            paymentType: .monthly,
+            isCompounding: false
+        )
+
+        // 120tr * 6% / 12 = 600.000 đ / tháng, 12 kỳ -> 7.200.000 đ
+        XCTAssertEqual(result.firstMonthPayout, 600_000.0, accuracy: 5.0)
+        XCTAssertEqual(result.totalInterest, 7_200_000.0, accuracy: 10.0)
+        XCTAssertEqual(result.schedule.count, 12)
+    }
 }
 
