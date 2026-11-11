@@ -40,7 +40,7 @@ enum SavingsCalculator {
                 schedule.append(
                     SavingsScheduleItem(
                         period: 1,
-                        payoutDate = maturityDate,
+                        payoutDate: maturityDate,
                         interestAmount: round(totalInterest),
                         principalAmount: round(depositAmount),
                         balanceAfter: round(depositAmount + totalInterest)
