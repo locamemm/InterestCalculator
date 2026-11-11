@@ -94,3 +94,4 @@ struct SavedDepositParams: Identifiable, Codable, Equatable {
     var items: [DepositSourceItem] = []
     var savedAt: Int64 = Int64(Date().timeIntervalSince1970 * 1000)
 }
+
